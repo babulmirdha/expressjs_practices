@@ -1,0 +1,39 @@
+### Video Tutorial
+https://youtu.be/Kxp5h8tXdFE
+
+### Get All Customers
+GET http://localhost:3000/customers
+
+
+### Get Product By Id
+GET http://localhost:3000/customers/2
+
+### Create Product
+POST http://localhost:3000/customers
+Content-Type: application/json
+
+{
+    "name": "Product 1",
+    "price": 100
+}
+
+### Update Product
+PUT http://localhost:3000/customers/1
+Content-Type: application/json
+
+{
+    "name": "iPhone",
+    "price": 200
+}
+
+### Partial Update Product 
+PATCH  http://localhost:3000/customers/1
+Content-Type: application/json
+
+{
+    "price": 1000
+}
+
+
+### Delete Product
+DELETE  http://localhost:3000/customers/1
