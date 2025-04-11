@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("./db"); // MongoDB connection
 const customerRoutes = require("./routes/customers"); // Your routes
+const productsRoutes = require("./routes/products"); // Your routes
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -10,6 +11,7 @@ app.use(express.json()); // To parse JSON bodies
 
 // Routes
 app.use("/api/customers", customerRoutes);
+app.use("/api/products", productsRoutes);
 
 // Root route
 app.get("/", (req, res) => {

@@ -5,7 +5,7 @@ module.exports = {
     Customer: require("./Customer"),
     Order: require("./Order"),
     OrderItem: require("./OrderItem"),
-    ProductCategory: require("./ProductCategory"),
+    // ProductCategory: require("./ProductCategory"),
 
   };
   

@@ -2,14 +2,14 @@
 https://youtu.be/Kxp5h8tXdFE
 
 ### Get All Products
-GET http://localhost:3000/products
+GET http://localhost:5000/products
 
 
 ### Get Product By Id
-GET http://localhost:3000/products/2
+GET http://localhost:5000/products/2
 
 ### Create Product
-POST http://localhost:3000/products
+POST http://localhost:5000/products
 Content-Type: application/json
 
 {
@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ### Update Product
-PUT http://localhost:3000/products/1
+PUT http://localhost:5000/products/1
 Content-Type: application/json
 
 {
@@ -27,7 +27,7 @@ Content-Type: application/json
 }
 
 ### Partial Update Product 
-PATCH  http://localhost:3000/products/1
+PATCH  http://localhost:5000/products/1
 Content-Type: application/json
 
 {
@@ -36,4 +36,4 @@ Content-Type: application/json
 
 
 ### Delete Product
-DELETE  http://localhost:3000/products/1
+DELETE  http://localhost:5000/products/1
