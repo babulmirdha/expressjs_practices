@@ -1,0 +1,42 @@
+@host = http://localhost:5000
+
+### Video Tutorial
+https://youtu.be/Kxp5h8tXdFE
+
+
+### Create Category
+POST {{host}}/api/categories
+Content-Type: application/json
+
+{
+    "name": "Mobile"
+}
+
+### Get All Categories
+GET {{host}}/api/categories
+
+
+### Get Category By Id
+GET {{host}}/api/categories/67f94de8d3b40a9e431861ba
+
+
+
+### Update Category
+PUT {{host}}/api/categories/67f94de8d3b40a9e431861ba
+Content-Type: application/json
+
+{
+    "name": "Mobile Accessories",
+}
+
+### Partial Update Category 
+PATCH  {{host}}/api/categories/67f89540c527a80bfbaa251d
+Content-Type: application/json
+
+{
+    "email": "billal@yahoo.com"
+}
+
+
+### Delete Category
+DELETE  {{host}}/api/categories/67f89540c527a80bfbaa251d

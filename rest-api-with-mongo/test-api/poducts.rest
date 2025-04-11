@@ -1,15 +1,10 @@
+@host = http://localhost:5000
+
 ### Video Tutorial
 https://youtu.be/Kxp5h8tXdFE
 
-### Get All Products
-GET http://localhost:5000/products
-
-
-### Get Product By Id
-GET http://localhost:5000/products/2
-
 ### Create Product
-POST http://localhost:5000/products
+POST {{host}}/api/products
 Content-Type: application/json
 
 {
@@ -17,8 +12,16 @@ Content-Type: application/json
     "price": 100
 }
 
+### Get All Products
+GET {{host}}/api/products
+
+
+### Get Product By Id
+GET {{host}}/api/products/67f94922f814a80491b98ce6
+
+
 ### Update Product
-PUT http://localhost:5000/products/1
+PUT {{host}}/api/products/67f94922f814a80491b98ce6
 Content-Type: application/json
 
 {
@@ -27,7 +30,7 @@ Content-Type: application/json
 }
 
 ### Partial Update Product 
-PATCH  http://localhost:5000/products/1
+PATCH  {{host}}/api/products/67f94922f814a80491b98ce6
 Content-Type: application/json
 
 {
@@ -36,4 +39,4 @@ Content-Type: application/json
 
 
 ### Delete Product
-DELETE  http://localhost:5000/products/1
+DELETE  {{host}}/api/products/1
