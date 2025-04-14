@@ -17,20 +17,20 @@ GET {{host}}/api/categories
 
 
 ### Get Category By Id
-GET {{host}}/api/categories/67f94de8d3b40a9e431861ba
+GET {{host}}/api/categories/67fab3f74bd6025ec1c4ad12
 
 
 
 ### Update Category
-PUT {{host}}/api/categories/67f94de8d3b40a9e431861ba
+PUT {{host}}/api/categories/67fab3f74bd6025ec1c4ad12
 Content-Type: application/json
 
 {
-    "name": "Mobile Accessories",
+    "name": "Mobile Accessories"
 }
 
 ### Partial Update Category 
-PATCH  {{host}}/api/categories/67f89540c527a80bfbaa251d
+PATCH  {{host}}/api/categories/67f94de8d3b40a9e431861ba
 Content-Type: application/json
 
 {
@@ -39,4 +39,4 @@ Content-Type: application/json
 
 
 ### Delete Category
-DELETE  {{host}}/api/categories/67f89540c527a80bfbaa251d
+DELETE  {{host}}/api/categories/67f94de8d3b40a9e431861ba

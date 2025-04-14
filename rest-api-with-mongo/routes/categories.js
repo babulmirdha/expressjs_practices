@@ -3,19 +3,35 @@ const router = express.Router();
 const Category = require("../models/Category");
 const Product = require("../models/Product");
 
-// 📌 Create a Category
+// // 📌 Create a Category
+// router.post("/", async (req, res) => {
+//   try {
+//     const { name, description } = req.body;
+//     const category = new Category({ name, description });
+//     const saved = await category.save();
+//     res.status(201).json({
+//       status: "success",
+//       message: "Category added",
+//       data: saved,
+//     });
+//   } catch (err) {
+//     res.status(500).json({ status: "error", message: err.message });
+//   }
+// });
+
+// POST: Create a new category
 router.post("/", async (req, res) => {
+  const { name, description } = req.body;
+
   try {
-    const { name, description } = req.body;
     const category = new Category({ name, description });
-    const saved = await category.save();
-    res.status(201).json({
-      status: "success",
-      message: "Category added",
-      data: saved,
-    });
+    await category.save();
+    res.status(201).json({ message: "Category created", category });
   } catch (err) {
-    res.status(500).json({ status: "error", message: err.message });
+    if (err.code === 11000) {
+      return res.status(409).json({ message: "Category name must be unique." });
+    }
+    res.status(500).json({ message: "Server error", error: err.message });
   }
 });
 
