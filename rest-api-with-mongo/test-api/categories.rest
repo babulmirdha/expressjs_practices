@@ -9,7 +9,8 @@ POST {{host}}/api/categories
 Content-Type: application/json
 
 {
-    "name": "Mobile"
+    "name": "TV & Electronics",
+    "description": "All Electronics and TV products"
 }
 
 ### Get All Categories

@@ -24,6 +24,19 @@ router.post("/", async (req, res) => {
   const { name, description } = req.body;
 
   try {
+
+    // Check if name is provided
+    if (!name || name.trim() === "") {
+      return res.status(400).json({ message: "Category name is required." });
+    }
+
+    // check if existing category name
+
+    // const existing = await Category.findOne({ name: name.trim() });
+    // if (existing) {
+    //   return res.status(409).json({ message: "Category name must be unique." });
+    // }
+
     const category = new Category({ name, description });
     await category.save();
     res.status(201).json({ message: "Category created", category });
