@@ -1,0 +1,14 @@
+@host = http://localhost:5000
+
+@productId = 67f94922f814a80491b98ce6
+
+
+### Create Product Category 
+POST {{host}}/api/products/67feab29f312913db29afe29/categories
+Content-Type: application/json
+{
+     "categories": ["67fea28f38e01c6614672964", "67fead77350ad139de088a23"]
+}
+
+### Get all categories of a product
+GET {{host}}/api/products/67feab29f312913db29afe29/categories

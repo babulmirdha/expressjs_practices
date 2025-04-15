@@ -1,0 +1,49 @@
+@host = http://localhost:5000
+
+### Video Tutorial
+https://youtu.be/Kxp5h8tXdFE
+
+
+### Create Customer
+POST {{host}}/api/customers
+Content-Type: application/json
+
+{
+    "name": "Md Bilal",
+    "address": "Dhakka",
+    "mobile": "+8801717",
+    "email": "bl@gm.com"
+
+}
+
+### Get All Customers
+GET {{host}}/api/customers
+
+
+### Get Customer By Id
+GET {{host}}/api/customers/67f89540c527a80bfbaa251d
+
+
+
+### Update Customer
+PUT {{host}}/api/customers/67f89540c527a80bfbaa251d
+Content-Type: application/json
+
+{
+    "name": "Md Bilal",
+    "address": "Dhaka, Bangladesh",
+    "mobile": "+8801818983473",
+    "email": "billal@gmail.com"
+}
+
+### Partial Update Customer 
+PATCH  {{host}}/api/customers/67f89540c527a80bfbaa251d
+Content-Type: application/json
+
+{
+    "email": "billal@yahoo.com"
+}
+
+
+### Delete Customer
+DELETE  {{host}}/api/customers/67f89540c527a80bfbaa251d

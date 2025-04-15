@@ -1,0 +1,47 @@
+@host = http://localhost:5000
+
+### Video Tutorial
+https://youtu.be/Kxp5h8tXdFE
+
+### Create Product
+POST {{host}}/api/products
+Content-Type: application/json
+
+{
+    "name": "Product 1234",
+    "price": 100,
+    "category": "67fea28f38e01c6614672964"
+}
+
+### Get All Products
+GET {{host}}/api/products
+
+
+### Get All Products-Categories
+GET {{host}}/api/products/product-category
+
+
+### Get Product By Id
+GET {{host}}/api/products/67f94922f814a80491b98ce6
+
+
+### Update Product
+PUT {{host}}/api/products/67f94922f814a80491b98ce6
+Content-Type: application/json
+
+{
+    "name": "iPhone",
+    "price": 200
+}
+
+### Partial Update Product 
+PATCH  {{host}}/api/products/67f94922f814a80491b98ce6
+Content-Type: application/json
+
+{
+    "price": 1000
+}
+
+
+### Delete Product
+DELETE  {{host}}/api/products/1
