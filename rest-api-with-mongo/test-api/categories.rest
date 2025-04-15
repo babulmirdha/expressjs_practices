@@ -9,7 +9,7 @@ POST {{host}}/api/categories
 Content-Type: application/json
 
 {
-    "name": "TV & Electronics",
+    "name": "Fish",
     "description": "All Electronics and TV products"
 }
 

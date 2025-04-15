@@ -38,8 +38,12 @@ router.post("/", async (req, res) => {
     // }
 
     const category = new Category({ name, description });
+
     await category.save();
-    res.status(201).json({ message: "Category created", category });
+
+  //  const { _id, name, description: description } = category;
+
+    res.status(201).json({ message: "Category created", data: { _id:category._id, name:category.name, description:category.description } });
   } catch (err) {
     if (err.code === 11000) {
       console.log(err.message);

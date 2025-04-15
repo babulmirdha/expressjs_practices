@@ -3,17 +3,6 @@ const router = express.Router();
 const Product = require("../models/Product");
 const Category = require("../models/Category");
 
-// GET: Get all categories of a product
-router.get("/:productId/categories", async (req, res) => {
-  try {
-    const product = await Product.findById(req.params.productId).populate("categories");
-    if (!product) return res.status(404).json({ message: "Product not found" });
-
-    res.status(200).json({ categories: product.categories });
-  } catch (err) {
-    res.status(500).json({ message: "Server error", error: err.message });
-  }
-});
 
 // POST: Assign a category to a product (add to array)
 router.post("/:productId/categories", async (req, res) => {
@@ -45,6 +34,19 @@ router.post("/:productId/categories", async (req, res) => {
     res.status(500).json({ message: "Server error", error: err.message });
   }
 });
+
+// GET: Get all categories of a product
+router.get("/:productId/categories", async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.productId).populate("categories");
+    if (!product) return res.status(404).json({ message: "Product not found" });
+
+    res.status(200).json({ categories: product.categories });
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err.message });
+  }
+});
+
 
 // PUT: Replace all categories of a product
 router.put("/:productId/categories", async (req, res) => {
