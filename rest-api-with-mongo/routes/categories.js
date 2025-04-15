@@ -42,6 +42,7 @@ router.post("/", async (req, res) => {
     res.status(201).json({ message: "Category created", category });
   } catch (err) {
     if (err.code === 11000) {
+      console.log(err.message);
       return res.status(409).json({ message: "Category name must be unique." });
     }
     res.status(500).json({ message: "Server error", error: err.message });
@@ -51,7 +52,16 @@ router.post("/", async (req, res) => {
 // 📌 Read All Categories
 router.get("/", async (req, res) => {
   try {
-    const categories = await Category.find();
+    
+    // const filter = {
+    // name: req.query.name || null
+    // };
+
+    const categories = await Category.find().select("-__v -createdAt -updatedAt -products");
+
+    if (categories.length == 0) {
+      return res.status(404).json({ status: "error", message: "No categories found" });
+    }
     res.json({
       status: "success",
       message: "Categories retrieved",
@@ -65,7 +75,7 @@ router.get("/", async (req, res) => {
 // 📌 Read Single Category
 router.get("/:id", async (req, res) => {
   try {
-    const category = await Category.findById(req.params.id);
+    const category = await Category.findById(req.params.id).select("-__v -createdAt -updatedAt -products");
     if (!category) {
       return res.status(404).json({ status: "error", message: "Category not found" });
     }
@@ -87,7 +97,7 @@ router.put("/:id", async (req, res) => {
       req.params.id,
       { name, description },
       { new: true, runValidators: true }
-    );
+    ).select("-__v -createdAt -updatedAt -products");
 
     if (!updated) {
       return res.status(404).json({ status: "error", message: "Category not found" });
